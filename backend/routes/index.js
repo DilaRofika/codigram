@@ -2,12 +2,17 @@ const route = require('express').Router()
 
 route.get('/', (req, res) => {
     res.status(200).json({
-        message: "Article Posts App"
+        message: "Codigram App"
     })
 })
 
-const userRoutes = require('./user')
+const homeController = require('../controllers/homeController')
+route.get('/', homeController.getHome)
 
-route.use('/users', userRoutes)
+const userRoute = require('./user')
+route.use('/user', userRoute)
+
+const postRoute = require('./post')
+route.use('/post', postRoute)
 
 module.exports = route
