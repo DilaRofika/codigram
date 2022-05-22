@@ -1,9 +1,9 @@
-import React, { /*useEffect,*/ useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MdDownloadForOffline } from 'react-icons/md';
 import { Link, useParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
-import { client, urlFor } from '../client';
+//import { client, urlFor } from '../client';
 import MasonryLayout from './MasonryLayout';
 import { pinDetailMorePinQuery, pinDetailQuery } from '../utils/data';
 import Spinner from './Spinner';
@@ -18,7 +18,7 @@ const PinDetail = ({ user }) => {
   const fetchPinDetails = () => {
     const query = pinDetailQuery(pinId);
 
-    if (query) {
+    /*if (query) {
       client.fetch(`${query}`).then((data) => {
         setPinDetail(data[0]);
         console.log(data);
@@ -29,15 +29,15 @@ const PinDetail = ({ user }) => {
           });
         }
       });
-    }
+    }*/
   };
 
-  /*useEffect(() => {
+  useEffect(() => {
     fetchPinDetails();
-  }, [pinId]);*/
+  }, [pinId]);
 
   const addComment = () => {
-    if (comment) {
+    /*if (comment) {
       setAddingComment(true);
 
       client
@@ -50,7 +50,7 @@ const PinDetail = ({ user }) => {
           setComment('');
           setAddingComment(false);
         });
-    }
+    }*/
   };
 
   if (!pinDetail) {
@@ -66,7 +66,7 @@ const PinDetail = ({ user }) => {
           <div className="flex justify-center items-center md:items-start flex-initial">
             <img
               className="rounded-t-3xl rounded-b-lg"
-              src={(pinDetail?.image && urlFor(pinDetail?.image).url())}
+              //src={(pinDetail?.image && urlFor(pinDetail?.image).url())}
               alt="user-post"
             />
           </div>

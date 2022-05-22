@@ -1,7 +1,7 @@
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
-const URL = 'http://localhost:3000/users'
+const URL = 'http://localhost:3001/backend/user'
 
 const getUsers = async (cb) => {
     try {
@@ -14,6 +14,16 @@ const getUsers = async (cb) => {
         console.log(e)
     }
 }
+
+/*const LoginUser = async (user) => {
+    try {
+        let result = await axios({
+            method: 'POST',
+            url: URL + "/login",
+            data: user
+        })
+    }
+}*/
 
 const addUser = async (user) => {
     try {

@@ -5,7 +5,7 @@ import { MdDownloadForOffline } from "react-icons/md";
 import { AiTwotoneDelete } from "react-icons/ai";
 import { BsFillArrowUpRightCircleFill } from "react-icons/bs";
 
-import { client, urlFor } from "../client";
+//import { client, urlFor } from "../client";
 
 const Pin = ({ pin }) => {
   const [postHovered, setPostHovered] = useState(false);
@@ -21,9 +21,9 @@ const Pin = ({ pin }) => {
       : localStorage.clear();
 
   const deletePin = (id) => {
-    client.delete(id).then(() => {
+    /*client.delete(id).then(() => {
       window.location.reload();
-    });
+    });*/
   };
 
   let alreadySaved = pin?.save?.filter(
@@ -33,7 +33,7 @@ const Pin = ({ pin }) => {
   alreadySaved = alreadySaved?.length > 0 ? alreadySaved : [];
 
   const savePin = (id) => {
-    if (alreadySaved?.length === 0) {
+    /*if (alreadySaved?.length === 0) {
       setSavingPost(true);
 
       client
@@ -54,7 +54,7 @@ const Pin = ({ pin }) => {
           window.location.reload();
           setSavingPost(false);
         });
-    }
+    }*/
   };
 
   return (
@@ -68,7 +68,7 @@ const Pin = ({ pin }) => {
         {image && (
           <img
             className="rounded-lg w-full "
-            src={urlFor(image).width(250).url()}
+            //src={urlFor(image).width(250).url()}
             alt="user-post"
           />
         )}

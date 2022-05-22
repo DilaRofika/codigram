@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { GoogleLogout } from 'react-google-login';
 
 import { userCreatedPinsQuery, userQuery, userSavedPinsQuery } from '../utils/data';
-import { client } from '../client';
+//import { client } from '../client';
 import MasonryLayout from './MasonryLayout';
 import Spinner from './Spinner';
 
@@ -22,14 +22,14 @@ const UserProfile = () => {
   const User = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
 
   useEffect(() => {
-    const query = userQuery(userId);
+    /*const query = userQuery(userId);
     client.fetch(query).then((data) => {
       setUser(data[0]);
-    });
+    });*/
   }, [userId]);
 
   useEffect(() => {
-    if (text === 'Created') {
+    /*if (text === 'Created') {
       const createdPinsQuery = userCreatedPinsQuery(userId);
 
       client.fetch(createdPinsQuery).then((data) => {
@@ -41,7 +41,7 @@ const UserProfile = () => {
       client.fetch(savedPinsQuery).then((data) => {
         setPins(data);
       });
-    }
+    }*/
   }, [text, userId]);
 
   const logout = () => {

@@ -10,9 +10,9 @@ const homeController = require('../controllers/homeController')
 route.get('/', homeController.getHome)
 
 const userRoute = require('./user')
-route.use('/user', userRoute)
+route.use('/backend/user', userRoute)
 
 const postRoute = require('./post')
-route.use('/post', postRoute)
+route.use('/backend/post', postRoute)
 
 module.exports = route

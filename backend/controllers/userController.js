@@ -1,5 +1,6 @@
 const { TblUser } = require('../models')
 const { decryptPswd } = require('../helpers/bcrypt')
+const { tokenGenerator, tokenVerifier } = require('../helpers/jsonwebtoken')
 
 class UserController {
     static async getAllUsers(req, res) {
@@ -36,8 +37,12 @@ class UserController {
 
             if (usernameFound) {
                 if (decryptPswd(password, usernameFound.password)) {
+                    let access_token = tokenGenerator(usernameFound)
+                    let user = username
 
-                    res.status(200).json(usernamelFound)
+                    res.status(200).json({ access_token, user})
+                    let verifyToken = tokenVerifier(access_token)
+                    console.log(verifyToken)
                 } else {
                     res.status(403).json({
                         message: "Invalid password!"

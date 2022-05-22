@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { MdDelete } from 'react-icons/md';
 
 import { categories } from '../utils/data';
-import { client } from '../client';
+//import { client } from '../client';
 import Spinner from './Spinner';
 
 const CreatePin = ({ user }) => {
@@ -20,7 +20,9 @@ const CreatePin = ({ user }) => {
   const navigate = useNavigate();
 
   const uploadImage = (e) => {
-    const selectedFile = e.target.files[0];
+    //Upload Image
+
+    /*const selectedFile = e.target.files[0];
     // uploading asset to sanity
     if (selectedFile.type === 'image/png' || selectedFile.type === 'image/svg' || selectedFile.type === 'image/jpeg' || selectedFile.type === 'image/gif' || selectedFile.type === 'image/tiff') {
       setWrongImageType(false);
@@ -37,11 +39,13 @@ const CreatePin = ({ user }) => {
     } else {
       setLoading(false);
       setWrongImageType(true);
-    }
+    }*/
   };
 
   const savePin = () => {
-    if (title && about && destination && imageAsset?._id && category) {
+    //
+    
+    /*if (title && about && destination && imageAsset?._id && category) {
       const doc = {
         _type: 'pin',
         title,
@@ -73,7 +77,7 @@ const CreatePin = ({ user }) => {
         },
         2000,
       );
-    }
+    }*/
   };
   return (
     <div className="flex flex-col justify-center items-center mt-5 lg:h-4/5">
